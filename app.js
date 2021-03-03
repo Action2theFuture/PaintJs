@@ -72,7 +72,7 @@ function handleRightClick(event) {
 }
 
 function handleSaveClick() {
-    const image = canvas.toDataURL());
+    const image = canvas.toDataURL();
     const link = document.createElement("a");
     link.href = image;
     link.download = "PaintJS";
