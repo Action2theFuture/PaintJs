@@ -31,7 +31,7 @@ function startPainting() {
 function onMouseMove(event) {
     const x = event.offsetX;
     const y = event.offsetY;
-    if(!painting) {
+    if (!painting) {
         ctx.beginPath();
         ctx.moveTo(x, y);
     } else {
@@ -42,8 +42,8 @@ function onMouseMove(event) {
 
 function handleColorClick(event) {
     const color = event.target.style.backgroundColor;
-    ctx.strokeStyle = color;   
-    ctx.fillStyle = color; 
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
 }
 
 function handleRangeChange(event) {
@@ -52,7 +52,7 @@ function handleRangeChange(event) {
 }
 
 function handleModeClick() {
-    if(filling === true) {
+    if (filling === true) {
         filling = false;
         mode.innerText = "Fill"
     } else {
@@ -62,7 +62,7 @@ function handleModeClick() {
 }
 
 function handleCanvasClick() {
-    if(filling) {
+    if (filling) {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 }
@@ -79,7 +79,7 @@ function handleSaveClick() {
     link.click();
 }
 
-if(canvas){
+if (canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
     canvas.addEventListener("mouseup", stopPainting);
@@ -88,16 +88,16 @@ if(canvas){
     canvas.addEventListener("contextmenu", handleRightClick);
 }
 
-Array.from(colors).forEach(color => color.addEventListener("click" ,handleColorClick));
+Array.from(colors).forEach(color => color.addEventListener("click", handleColorClick));
 
-if(range) {
+if (range) {
     range.addEventListener("input", handleRangeChange);
 }
 
-if(mode) {
+if (mode) {
     mode.addEventListener("click", handleModeClick);
 }
 
-if(saveBtn) {
+if (saveBtn) {
     saveBtn.addEventListener("click", handleSaveClick);
 }
